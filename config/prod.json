@@ -1,4 +1,8 @@
 {
     "port": 5000,
-    "environment": "Production"
+    "environment": "Production",
+    "jwt_secret": "MYSECRET",
+    "data_base": {
+        "mongo_uri": "mongodb+srv://dbUser:dbUserPassword@cluster0.4wgx8.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    }
 }

@@ -1,5 +1,6 @@
 import config from 'config';
 import app from './app' ;
+import DB_Connection from './repositories/db';
 
 let port = config.get('port');
 
@@ -12,6 +13,9 @@ if(!port) {
 }
 
 const PORT: number = parseInt(port as string, 10);
+
+const db_connection = new DB_Connection();
+db_connection.connect_db();
 
 const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
