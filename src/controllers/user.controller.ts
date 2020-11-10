@@ -4,10 +4,12 @@ import jwt from 'jsonwebtoken';
 import config from 'config';
 import User from '../models/user';
 import { ErrorHandler, handleError } from '../error';
+import userValidations from '../middlewares/validators/user/user.validator';
+import validator from '../middlewares/validator';
 
 const router = Router();
 
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', userValidations, validator, async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
     try {
         let user = await User.findOne({ email });
